@@ -104,11 +104,11 @@ function Navbar() {
                     <span>
                       <img
                         className="w-10"
-                        src="https://www.devknus.com/img/react.png"
+                        src="https://marketplace.canva.com/EAE72jfknRM/2/0/1600w/canva-yellow-and-black-online-shop-business-logo-AvRZNVCTIeg.jpg"
                         alt="logo"
                       />
                     </span>
-                    <span className="font-bold text-black">React Tailmate</span>
+                    <span className="font-bold text-black font-serif">ShopWell</span>
                   </div>
                   <div className="-mr-2">
                     <button
