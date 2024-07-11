@@ -10,6 +10,7 @@ import SignupForm from './Component/SignupForm'
 import CheckoutOne from './Component/CheckoutOne'
 import Success from './Component/Success'
 import Failed from './Component/Failed'
+import PageNotFound from './Component/PageNotFound'
 const App = () => {
   return (
     <div className='min-h-screen'>
@@ -24,6 +25,7 @@ const App = () => {
           <Route path='/CheckoutOne' element = {<CheckoutOne/>}></Route>
           <Route path='/Success' element = {<Success/>}></Route>
           <Route path='/failed' element = {<Failed/>}></Route>
+          <Route path='/*' element = {<PageNotFound/>}></Route>
         </Routes>
         <Footer/>
       </BrowserRouter>
