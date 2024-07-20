@@ -7,6 +7,8 @@ import toast, { Toaster } from 'react-hot-toast';
 
 function CheckoutOne() {
     const { allCartProduct } = useSelector((state) => state.app);
+
+    console.log(allCartProduct);
     const [totalPrice, setTotalPrice] = useState(0);
     const [location, setLocation] = useState({
         latitude: null,

@@ -24,6 +24,26 @@ function Navbar() {
     }
   };
 
+  const handleCartOne = () => {
+    const token = localStorage.getItem('token');
+    if (token) {
+      navigate('/CheckoutOne');
+    } else {
+      navigate('/LoginPage');
+    }
+  }
+
+  const logout = () => {
+    const token = localStorage.getItem('token');
+    if (token) {
+      localStorage.removeItem('token');
+      navigate('/');
+      dispatch(cartproduct());
+    } else {
+      navigate('/LoginPage');
+    }
+  }
+
   useEffect(() => {
     dispatch(searchproduct(search));
   }, [search, dispatch]);
@@ -83,14 +103,20 @@ function Navbar() {
               Login
             </button>
           </Link>
-          <Link to="/CheckoutOne">
-            <button
-              type="button"
-              className="rounded-md bg-black mx-2 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-black/80 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black"
-            >
-              Cart {allCartProduct.length}
-            </button>
-          </Link>
+          <button
+            onClick={handleCartOne}
+            type="button"
+            className="rounded-md bg-black mx-2 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-black/80 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black"
+          >
+            Cart {allCartProduct.length}
+          </button>
+          <button
+            onClick={logout}
+            type="button"
+            className="rounded-md bg-black mx-2 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-black/80 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black"
+          >
+            Logout
+          </button>
         </div>
         <div className="lg:hidden">
           <Menu onClick={toggleMenu} className="h-6 w-6 cursor-pointer" />
@@ -155,14 +181,20 @@ function Navbar() {
                       Login
                     </button>
                   </Link>
-                  <Link to="/CheckoutOne">
-                    <button
-                      type="button"
-                      className="mt-4 w-full rounded-md bg-black px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-black/80 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black"
-                    >
-                      Cart {allCartProduct.length}
-                    </button>
-                  </Link>
+                  <button
+                    onClick={handleCartOne}
+                    type="button"
+                    className="mt-4 w-full rounded-md bg-black px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-black/80 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black"
+                  >
+                    Cart {allCartProduct.length}
+                  </button>
+                  <button
+                    onClick={logout}
+                    type="button"
+                    className="mt-4 w-full rounded-md bg-black px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-black/80 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black"
+                  >
+                    Logout
+                  </button>
                 </div>
               </div>
             </div>

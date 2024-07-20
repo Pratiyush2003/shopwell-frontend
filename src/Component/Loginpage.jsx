@@ -1,11 +1,15 @@
 import React, { useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
 import { Link, useNavigate } from "react-router-dom";
+import { cartproduct } from "../app/getuserSlice";
 
 const LoginPage = () => {
   const [password, setUserPassword] = useState("");
   const [email, setUserEmail] = useState("");
   const [emailError, setEmailError] = useState("");
+  const { allCartProduct } = useSelector((state) => state.app);
   const navigate = useNavigate();
+  const dispatch = useDispatch();
 
   const validateEmail = (email) => {
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
@@ -33,6 +37,7 @@ const LoginPage = () => {
     } else {
       navigate('/');
       localStorage.setItem('token', loginData.token);
+      dispatch(cartproduct());
     }
 
     setUserPassword("");
